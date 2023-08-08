@@ -57,86 +57,93 @@ const Author = () => {
         ></section>
 
         <section aria-label="section">
-          <div className="container">
-            <div className="row">
-              {!loading && Object.keys(author).length > 0 ? (
-                <div className="col-md-12">
-                  <div className="d_profile de-flex">
-                    <div className="de-flex-col">
-                      <div className="profile_avatar">
-                        <img src={author.authorImage} alt="" />
+          <div
+            data-aos="fade-up"
+            data-aos-delay="100"
+            data-aos-duration="4000"
+            data-aos-easing="ease-in-out"
+          >
+            <div className="container">
+              <div className="row">
+                {!loading && Object.keys(author).length > 0 ? (
+                  <div className="col-md-12">
+                    <div className="d_profile de-flex">
+                      <div className="de-flex-col">
+                        <div className="profile_avatar">
+                          <img src={author.authorImage} alt="" />
 
-                        <i className="fa fa-check"></i>
-                        <div className="profile_name">
-                          <h4>
-                            {author.authorName}
-                            <span className="profile_username">
-                              {author.tag}
-                            </span>
-                            <span id="wallet" className="profile_wallet">
-                              {author.address}
-                            </span>
-                            <button id="btn_copy" title="Copy Text">
-                              Copy
-                            </button>
-                          </h4>
+                          <i className="fa fa-check"></i>
+                          <div className="profile_name">
+                            <h4>
+                              {author.authorName}
+                              <span className="profile_username">
+                                {author.tag}
+                              </span>
+                              <span id="wallet" className="profile_wallet">
+                                {author.address}
+                              </span>
+                              <button id="btn_copy" title="Copy Text">
+                                Copy
+                              </button>
+                            </h4>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="profile_follow de-flex">
-                      <div className="de-flex-col">
-                        <div className="profile_follower">
-                          {followers} followers
+                      <div className="profile_follow de-flex">
+                        <div className="de-flex-col">
+                          <div className="profile_follower">
+                            {followers} followers
+                          </div>
+                          <Link to="#" className="btn-main" onClick={follow}>
+                            {!followed ? "Follow" : "Unfollow"}
+                          </Link>
                         </div>
-                        <Link to="#" className="btn-main" onClick={follow}>
-                          {!followed ? "Follow" : "Unfollow"}
-                        </Link>
                       </div>
                     </div>
                   </div>
-                </div>
-              ) : (
-                <div className="col-md-12">
-                  <div className="d_profile de-flex">
-                    <div className="de-flex-col">
-                      <div className="profile_avatar">
-                        <Skeleton
-                          width="150px"
-                          height="150px"
-                          borderRadius="50%"
-                        />
-                        <div className="profile_name">
-                          <h4>
-                            <Skeleton width="200px" borderRadius="8px" />
-                            <span className="profile_username">
-                              <Skeleton width="100px" borderRadius="8px" />
-                            </span>
+                ) : (
+                  <div className="col-md-12">
+                    <div className="d_profile de-flex">
+                      <div className="de-flex-col">
+                        <div className="profile_avatar">
+                          <Skeleton
+                            width="150px"
+                            height="150px"
+                            borderRadius="50%"
+                          />
+                          <div className="profile_name">
+                            <h4>
+                              <Skeleton width="200px" borderRadius="8px" />
+                              <span className="profile_username">
+                                <Skeleton width="100px" borderRadius="8px" />
+                              </span>
 
-                            <Skeleton width="300px" borderRadius="8px" />
-                          </h4>
+                              <Skeleton width="300px" borderRadius="8px" />
+                            </h4>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="profile_follow de-flex">
+                        <div className="de-flex-col">
+                          <Skeleton
+                            width="150px"
+                            height="40px"
+                            borderRadius="8px"
+                          />
                         </div>
                       </div>
                     </div>
-                    <div className="profile_follow de-flex">
-                      <div className="de-flex-col">
-                        <Skeleton
-                          width="150px"
-                          height="40px"
-                          borderRadius="8px"
-                        />
-                      </div>
-                    </div>
                   </div>
-                </div>
-              )}
+                )}
 
-              <div className="col-md-12">
-                <div className="de_tab tab_simple">
-                  {!loading && items.length > 0 ? (
-                    <AuthorItems items={items} img={img} />
-                  ) : (
-                    <AuthorItemsLoading />
-                  )}
+                <div className="col-md-12">
+                  <div className="de_tab tab_simple">
+                    {!loading && items.length > 0 ? (
+                      <AuthorItems items={items} img={img} />
+                    ) : (
+                      <AuthorItemsLoading />
+                    )}
+                  </div>
                 </div>
               </div>
             </div>

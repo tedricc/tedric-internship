@@ -24,43 +24,53 @@ const NewItems = () => {
 
   return (
     <section id="section-items" className="no-bottom">
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-12">
-            <div className="text-center">
-              <h2>New Items</h2>
-              <div className="small-border bg-color-2"></div>
-            </div>
-          </div>
-
-          {!loading && newItems.length > 0 ? (
-            <OwlCarousel
-              className="owl-theme"
-              loop
-              margin={10}
-              nav
-              items={4}
-              dots={false}
-              responsive={{
-                1200: { items: 4 },
-                992: { items: 3 },
-                768: { items: 2 },
-                0: { items: 1 },
-              }}
-            >
-              {newItems.map((newItems) => (
-                <div key={newItems.id}>
-                  <NFT data={newItems} />
-                </div>
-              ))}
-            </OwlCarousel>
-          ) : (
-            new Array(4).fill(0).map((_, index) => (
-              <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={index}>
-                <NFTSkeleton />
+      <div
+        data-aos="fade-right"
+        data-aos-delay="100"
+        data-aos-duration="6000"
+        data-aos-easing="ease-in-out"
+      >
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="text-center">
+                <h2>New Items</h2>
+                <div className="small-border bg-color-2"></div>
               </div>
-            ))
-          )}
+            </div>
+
+            {!loading && newItems.length > 0 ? (
+              <OwlCarousel
+                className="owl-theme"
+                loop
+                margin={10}
+                nav
+                items={4}
+                dots={false}
+                responsive={{
+                  1200: { items: 4 },
+                  992: { items: 3 },
+                  768: { items: 2 },
+                  0: { items: 1 },
+                }}
+              >
+                {newItems.map((newItems) => (
+                  <div key={newItems.id}>
+                    <NFT data={newItems} />
+                  </div>
+                ))}
+              </OwlCarousel>
+            ) : (
+              new Array(4).fill(0).map((_, index) => (
+                <div
+                  className="col-lg-3 col-md-6 col-sm-6 col-xs-12"
+                  key={index}
+                >
+                  <NFTSkeleton />
+                </div>
+              ))
+            )}
+          </div>
         </div>
       </div>
     </section>

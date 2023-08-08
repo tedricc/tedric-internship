@@ -33,6 +33,15 @@ const ItemDetails = () => {
         <section aria-label="section" className="mt90 sm-mt-0">
           <div className="container">
             <div className="row">
+              <div className="col-md-6 text-center">
+                <div
+                  data-aos="fade-right"
+                  data-aos-delay="100"
+                  data-aos-duration="6000"
+                  data-aos-easing="ease-in-out"
+                >
+
+
               {!loading && Object.keys(nft).length > 0 ? (
                 <>
                   <div className="col-md-6 text-center">
