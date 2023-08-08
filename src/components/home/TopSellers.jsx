@@ -66,7 +66,6 @@ const TopSellers = () => {
                             height="50px"
                             borderRadius="50%"
                           />
-
                         </div>
                         <div className="author_list_info">
                           <Skeleton width="100px" height="16px" />
@@ -76,6 +75,8 @@ const TopSellers = () => {
                         </div>
                       </li>
                     ))}
+              </ol>
+            </div>
           </div>
         </div>
       </div>
